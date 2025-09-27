@@ -47,10 +47,8 @@ pipeline {
                     echo "  Lines added: $(grep -c '^+' gatekeeper.diff || echo 0)"
                     echo "  Lines removed: $(grep -c '^-' gatekeeper.diff || echo 0)"
                     echo "  Diff size: $(wc -c < gatekeeper.diff) bytes"
-                    
-                    # Archive diff for debugging
-                    archiveArtifacts artifacts: 'gatekeeper.diff', fingerprint: true
                 '''
+                archiveArtifacts artifacts: 'gatekeeper.diff', fingerprint: true
             }
         }
         
