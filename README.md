@@ -8,7 +8,7 @@ AI-powered code review for Jenkins that detects security vulnerabilities, secret
 -  **Code Quality**: Quality issues and improvements
 -  **Test Coverage**: Missing tests detection
 -  **Configurable**: YAML-based policies
--  **SARIF Reports**: Securitys dashboard integration
+-  **SARIF Reports**: Security dashboard integration
 -  **Jenkins Ready**: Drop-in pipeline integration
 
 ## Quick Start
