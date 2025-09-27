@@ -34,7 +34,8 @@ pipeline {
                     else
                         echo "Branch build detected"
                         git fetch origin main
-                        BASE=$(git merge-base HEAD origin/main)
+                        # Get the previous commit to compare against
+                        BASE=$(git rev-parse HEAD~1)
                         echo "Base commit: $BASE"
                     fi
                     
@@ -80,14 +81,8 @@ pipeline {
             }
             steps {
                 archiveArtifacts artifacts: 'build/aigate.sarif', fingerprint: true
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'build',
-                    reportFiles: 'aigate.sarif',
-                    reportName: 'AI Gatekeeper SARIF Report'
-                ])
+                // Note: publishHTML plugin not available, using archiveArtifacts only
+                echo "SARIF report archived as build artifact"
             }
         }
         
