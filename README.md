@@ -2,6 +2,10 @@
 
 A production-ready AI-powered CI gatekeeper for Jenkins that automatically reviews code changes for security vulnerabilities, insecure patterns, and test coverage gaps. The gatekeeper generates actionable fixes, annotates builds, and blocks merges based on configurable policies.
 
+## Test Change
+
+This is a test change to demonstrate the AI Gatekeeper functionality.
+
 ## Features
 
 - **Security Detection**: Automatically detects secrets, insecure APIs, and security vulnerabilities
