@@ -131,7 +131,6 @@ public class PreFilterEngine {
     
     private Map<String, Object> analyzeCoverage(Map<String, Object> diffAnalysis) {
         // Placeholder for coverage analysis
-        // In a real implementation, this would parse coverage reports
         Map<String, Object> coverage = new HashMap<>();
         coverage.put("overall", 0.75); // Mock coverage
         coverage.put("changedFiles", new HashMap<>());

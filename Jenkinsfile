@@ -1,16 +1,14 @@
 pipeline {
-    agent { 
-        label 'linux && java21'  // Adjust label to match your Jenkins agents
-    }
+    agent any
     
     environment {
-        ANTHROPIC_API_KEY = credentials('ANTHROPIC_API_KEY')  // Store API key in Jenkins credentials
+        ANTHROPIC_API_KEY = credentials('ANTHROPIC_API_KEY')
     }
     
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                // Remove checkout scm - Jenkins already has the code
                 sh 'git fetch --all --prune --tags'
             }
         }
