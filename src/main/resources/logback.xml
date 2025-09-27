@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console appender for production -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Application loggers -->
+    <logger name="com.jenkinsgatekeeper" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Suppress noisy HTTP client logs in production -->
+    <logger name="org.apache.hc.client5.http.wire" level="WARN" additivity="false"/>
+    <logger name="org.apache.hc.client5.http.headers" level="WARN" additivity="false"/>
+    <logger name="org.apache.hc.client5.http.impl" level="WARN" additivity="false"/>
+    <logger name="org.apache.hc.client5.http" level="WARN" additivity="false"/>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

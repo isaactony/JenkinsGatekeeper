@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console appender for debug mode -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Application loggers - verbose for debugging -->
+    <logger name="com.jenkinsgatekeeper" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Still suppress HTTP client logs even in debug mode to avoid secrets -->
+    <logger name="org.apache.hc.client5.http.wire" level="WARN" additivity="false"/>
+    <logger name="org.apache.hc.client5.http.headers" level="WARN" additivity="false"/>
+    <logger name="org.apache.hc.client5.http.impl" level="WARN" additivity="false"/>
+    <logger name="org.apache.hc.client5.http" level="WARN" additivity="false"/>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
